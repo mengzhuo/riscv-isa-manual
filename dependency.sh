@@ -36,25 +36,12 @@ apt-get install -y --no-install-recommends \
         texlive-fonts-recommended \
         texlive-fonts-extra \
         texlive-latex-extra \
-        texlive-science
+        texlive-science \
+        python3-sympy \
+        python3-yaml \
+        python3-jsonschema \
+        ruby-bundler
 
-pip3 install sympy pyyaml jsonschema
-gem install \
-        mathematical \
-        asciidoctor \
-        asciidoctor-sail \
-        asciidoctor-bibtex \
-        asciidoctor-diagram \
-        asciidoctor-lists \
-        asciidoctor-mathematical \
-        asciidoctor-pdf \
-        asciidoctor-epub3 \
-        asciidoctor-kroki \
-        citeproc-ruby \
-        coderay \
-        csl-styles \
-        json \
-        pygments.rb \
-        rghost \
-        rouge
- npm install -g wavedrom-cli@2.6.8 bytefield-svg@1.8.0
+(cd dependencies && bundle install --jobs $(nproc))   
+
+npm install -g wavedrom-cli@2.6.8 bytefield-svg@1.8.0
