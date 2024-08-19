@@ -3,7 +3,7 @@
 export DEBIAN_FRONTEND=noninteractive
 apt-get update -y
 
-apt-get install -y --no-install-recommends \
+apt-get install -qy --no-install-recommends \
         bison \
         build-essential \
         python3-pip \
@@ -42,6 +42,8 @@ apt-get install -y --no-install-recommends \
         python3-jsonschema \
         ruby-bundler
 
-(cd dependencies && bundle install --jobs $(nproc))   
+(cd dependencies && bundle config set --local system 'true' && bundle install --jobs $(nproc))   
 
 npm install -g wavedrom-cli@2.6.8 bytefield-svg@1.8.0
+
+rm -rf /var/lib/apt/lists/*
