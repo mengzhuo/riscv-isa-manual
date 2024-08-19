@@ -23,7 +23,9 @@ on:
 
 jobs:
   build:
-    runs-on: riscv-builders
+    runs-on: 
+      - riscv-builders
+      - soc-spacemit-k1
 
     steps:
     # Checkout the repository
